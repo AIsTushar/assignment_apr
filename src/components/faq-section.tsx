@@ -135,6 +135,7 @@ export default function FaqSection() {
                   src="/person/Avatar_3.png"
                   alt="User 1"
                   fill
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>
@@ -144,6 +145,7 @@ export default function FaqSection() {
                   src="/person/Avatar_1.png"
                   alt="User 2"
                   fill
+                  sizes="56px"
                   className="object-contain"
                 />
               </div>
@@ -153,6 +155,7 @@ export default function FaqSection() {
                   src="/person/Avatar_2.png"
                   alt="User 3"
                   fill
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>

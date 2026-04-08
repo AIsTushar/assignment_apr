@@ -1,99 +1,148 @@
+import Image from "next/image";
+import Link from "next/link";
+
+const logos = [
+  {
+    id: 1,
+    label: "Airbnb",
+    src: "/images/logo.png",
+    alt: "Airbnb",
+    wrapperClass:
+      "left-[18%] top-[16%] -rotate-[28deg] md:left-[18%] md:top-[14%]",
+    cardClass: "bg-[#ff5a5f]",
+    imageClass: "w-[76%] rotate-[20deg]",
+  },
+  {
+    id: 2,
+    label: "Blue icon",
+    src: "/images/logo_4.png",
+    alt: "Platform logo",
+    wrapperClass:
+      "right-[19%] top-[18%] rotate-[28deg] md:right-[18%] md:top-[16%]",
+    cardClass: "bg-[#123f86]",
+    imageClass: "w-[62%] rotate-[-28deg]",
+  },
+  {
+    id: 3,
+    label: "Navy icon",
+    src: "/images/logo_2.png",
+    alt: "Platform logo",
+    wrapperClass:
+      "left-[21%] bottom-[16%] -rotate-[24deg] md:left-[21%] md:bottom-[14%]",
+    cardClass: "bg-[#112a63]",
+    imageClass: "w-[64%] rotate-[24deg]",
+  },
+  {
+    id: 4,
+    label: "Tripadvisor style",
+    src: "/images/logo_3.png",
+    alt: "Tripadvisor style logo",
+    wrapperClass:
+      "right-[19%] bottom-[13%] rotate-[34deg] md:right-[18%] md:bottom-[12%]",
+    cardClass: "bg-[#47dca0]",
+    imageClass: "w-[64%] rotate-[-34deg]",
+  },
+];
+
+const dots = [
+  "left-[6%] top-[24%] bg-[#5a58e8]",
+  "left-[14%] top-[62%] bg-[#ef5b61]",
+  "left-[7%] bottom-[7%] bg-[#dfc64a]",
+  "left-1/2 top-[18%] bg-[#3ac88d]",
+  "left-[51%] bottom-[8%] bg-[#54d4e2]",
+  "right-[13%] top-[37%] bg-[#e3ca44]",
+  "right-[8%] bottom-[18%] bg-[#173d7a]",
+];
+
 export default function HeroSection() {
-  const logos = [
-    {
-      id: 1,
-      label: "Airbnb",
-      className: "left-[18%] top-[18%] -rotate-[28deg] bg-[#ff5a5f] text-white",
-      content: (
-        <div className="flex h-full w-full flex-col items-center justify-center">
-          <div className="text-xl font-bold leading-none">⌂</div>
-          <div className="mt-1 text-[11px] font-semibold tracking-tight">
-            airbnb
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 2,
-      label: "Blue icon",
-      className: "right-[20%] top-[20%] rotate-[28deg] bg-[#123f86] text-white",
-      content: <div className="text-3xl font-black italic">B</div>,
-    },
-    {
-      id: 3,
-      label: "Navy icon",
-      className:
-        "left-[21%] bottom-[18%] -rotate-[24deg] bg-[#112a63] text-white",
-      content: <div className="text-lg font-extrabold">〽</div>,
-    },
-    {
-      id: 4,
-      label: "Tripadvisor style",
-      className:
-        "right-[20%] bottom-[16%] rotate-[35deg] bg-[#47dca0] text-black",
-      content: <div className="text-2xl font-black">◎◉</div>,
-    },
-  ];
-
-  const dots = [
-    "left-[6%] top-[24%] bg-[#5a58e8]",
-    "left-[14%] top-[62%] bg-[#ef5b61]",
-    "left-[7%] bottom-[6%] bg-[#dfc64a]",
-    "left-1/2 top-[18%] bg-[#3ac88d]",
-    "left-[51%] bottom-[7%] bg-[#54d4e2]",
-    "right-[13%] top-[37%] bg-[#e3ca44]",
-    "right-[7.5%] bottom-[18%] bg-[#173d7a]",
-  ];
-
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e9e9e9_1px,transparent_1px),linear-gradient(to_bottom,#e9e9e9_1px,transparent_1px)] bg-[size:56px_56px]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.3),rgba(255,255,255,0.15))]" />
+      {/* Full section grid / cross-line background */}
+      <Image
+        src="/images/hero.png"
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        className="object-cover"
+      />
 
+      {/* Center ellipse image */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-1 -translate-x-1/2 -translate-y-1/2">
+        <Image
+          src="/images/ellipse.png"
+          alt=""
+          aria-hidden="true"
+          width={760}
+          height={760}
+          className="h-auto w-[320px] object-contain opacity-80 md:w-115 lg:w-155"
+          priority
+        />
+      </div>
+
+      {/* Floating dots */}
       {dots.map((dot, index) => (
         <span
           key={index}
-          className={`absolute h-2.5 w-2.5 rounded-full shadow-sm ${dot}`}
+          className={`absolute z-2 h-2.5 w-2.5 rounded-full shadow-sm ${dot}`}
         />
       ))}
 
+      {/* Floating logo cards */}
       {logos.map((logo) => (
         <div
           key={logo.id}
           aria-label={logo.label}
-          className={`absolute flex h-11 w-11 items-center justify-center rounded-xl shadow-md md:h-14 md:w-14 ${logo.className}`}
+          className={`absolute z-2 hidden md:block ${logo.wrapperClass}`}
         >
-          {logo.content}
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-[14px] shadow-[0_12px_24px_rgba(0,0,0,0.10)] ${logo.cardClass}`}
+          >
+            <div className={`relative aspect-square ${logo.imageClass}`}>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                className="object-contain"
+                sizes="56px"
+              />
+            </div>
+          </div>
         </div>
       ))}
 
-      <div className="relative mx-auto flex min-h-[560px] max-w-7xl items-center justify-center px-6 py-24 text-center md:px-10">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-extrabold tracking-[-0.03em] text-black md:text-6xl">
+      {/* Main content */}
+      <div className="relative z-3 mx-auto flex min-h-155 max-w-360 items-center justify-center px-6 py-24 text-center md:min-h-175 md:px-10">
+        <div className="max-w-215">
+          <h1 className="text-[42px] font-extrabold leading-[0.95] tracking-[-0.04em] text-black md:text-[76px]">
             Airbnb Assistants For
           </h1>
-          <h2 className="mt-2 text-2xl font-medium tracking-[-0.03em] text-black md:text-4xl">
+
+          <h2 className="mt-3 text-[28px] font-medium leading-[1.05] tracking-[-0.03em] text-black md:text-[54px]">
             Property Management
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-sm leading-6 text-neutral-700 md:text-base">
+          <p className="mx-auto mt-10 max-w-190 text-[15px] leading-[1.7] text-[#353535] md:text-[18px]">
             Automate guest communication, streamline daily operations, and
             manage your Airbnb properties with a smart assistant designed for
             modern hosts and property managers.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4">
-            <button className="inline-flex items-center gap-2 rounded-md bg-[#ff4f87] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(255,79,135,0.25)] transition hover:-translate-y-0.5 hover:bg-[#f43f7d]">
+          <div className="mt-10 flex flex-col items-center justify-center gap-5">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-13 items-center gap-2 rounded-md bg-[#ff4f87] px-7 py-3 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(255,79,135,0.22)] transition hover:-translate-y-0.5 hover:bg-[#f63c7a]"
+            >
               Schedule A Meeting
               <span aria-hidden="true">→</span>
-            </button>
+            </Link>
 
-            <a
+            <Link
               href="#pricing"
-              className="text-sm font-medium text-black underline underline-offset-4"
+              className="text-[15px] font-semibold text-black underline underline-offset-4"
             >
               See Pricing
-            </a>
+            </Link>
           </div>
         </div>
       </div>

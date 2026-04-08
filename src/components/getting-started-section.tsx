@@ -61,7 +61,7 @@ function StepCard({ step }: { step: Step }) {
 
 export default function GettingStartedSection() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
+    <section className="py-4 md:py-6 lg:py-8">
       <div className="mx-auto w-[92%] max-w-310">
         {/* Top Section */}
         <div className="text-center">

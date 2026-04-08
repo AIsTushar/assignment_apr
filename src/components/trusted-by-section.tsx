@@ -55,6 +55,7 @@ export default function TrustedBySection() {
           <div className="trusted-marquee flex w-max items-center py-5 md:py-6">
             <LogoRow />
             <LogoRow />
+            <LogoRow />
           </div>
         </div>
       </div>
