@@ -21,7 +21,7 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-0 border-primary/20 bg-white shadow-[0_16px_60px_-12px_rgba(241,70,104,0.25)]">
+    <header className="sticky top-0 z-50 w-full bg-white">
       <div className="mx-auto w-[92%] max-w-327.5 bg-white">
         <div className="flex items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
           <Link href="/" aria-label="Go to homepage" onClick={closeMenu}>
