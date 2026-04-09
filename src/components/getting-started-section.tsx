@@ -36,19 +36,13 @@ const reasons = [
 function StepCard({ step }: { step: Step }) {
   return (
     <article className="flex flex-col items-center text-center">
-      <div className="relative flex h-31.5 w-full max-w-61.5 items-center justify-center rounded-[10px] border border-[#f4ccd6] bg-transparent">
+      <div className="relative flex h-46 w-full max-w-64 items-center justify-center rounded-[10px] border-2 border-primary/8 bg-transparent">
         <div className="absolute -left-4 -top-4 flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-primary bg-white text-[24px] font-semibold leading-none text-[#1e1e1e]">
           {step.number}
         </div>
 
-        <div className="relative h-15 w-15">
-          <Image
-            src={step.icon}
-            alt={step.title}
-            fill
-            className="object-contain"
-            sizes="60px"
-          />
+        <div className="relative">
+          <Image src={step.icon} alt={step.title} width={76} height={76} />
         </div>
       </div>
 
@@ -77,7 +71,7 @@ export default function GettingStartedSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {steps.map((step) => (
             <StepCard key={step.number} step={step} />
           ))}

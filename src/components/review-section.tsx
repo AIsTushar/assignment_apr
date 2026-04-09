@@ -65,14 +65,14 @@ function ReviewCard({
   return (
     <article
       className={[
-        "flex h-[158px] items-center rounded-[12px] px-7 py-8 transition-all duration-500",
+        "flex h-39.5 items-center rounded-xl px-7 py-8 transition-all duration-500",
         isActive
           ? "bg-white shadow-[0_18px_45px_rgba(0,0,0,0.08)]"
           : "bg-[#f3f3f3] shadow-none",
       ].join(" ")}
     >
       <div className="flex items-center gap-5">
-        <div className="relative h-[78px] w-[78px] shrink-0 overflow-hidden rounded-full">
+        <div className="relative h-19.5 w-19.5 shrink-0 overflow-hidden rounded-full">
           <Image
             src={review.avatar}
             alt={review.name}
@@ -87,7 +87,7 @@ function ReviewCard({
             {review.name}
           </h3>
 
-          <p className="mt-2 max-w-[260px] text-[14px] leading-[1.45] text-[#2E2E2E]">
+          <p className="mt-2 max-w-65 text-[14px] leading-[1.45] text-[#2E2E2E]">
             {review.review}
           </p>
 
@@ -101,8 +101,8 @@ function ReviewCard({
 export default function ReviewSection() {
   return (
     <section className="overflow-hidden py-16 md:py-20 lg:py-24">
-      <div className="mx-auto w-[92%] max-w-[1400px]">
-        <div className="mx-auto max-w-[760px] text-center">
+      <div className="mx-auto w-[92%] max-w-350">
+        <div className="mx-auto max-w-190 text-center">
           <h2 className="text-[32px] font-bold leading-tight text-[#1f2430] md:text-[44px]">
             Check Our Clients <span className="text-[#F14668]">Review</span>
           </h2>
@@ -143,7 +143,7 @@ export default function ReviewSection() {
                 spaceBetween: 26,
               },
             }}
-            className="!overflow-visible"
+            className="overflow-visible!"
           >
             {reviews.map((review) => (
               <SwiperSlide key={review.slideKey}>

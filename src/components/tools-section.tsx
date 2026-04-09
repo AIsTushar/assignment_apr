@@ -32,11 +32,11 @@ export default function ToolsSection() {
         </div>
 
         <div className="mt-32 w-full bg-gray-50 py-12">
-          <div className="mx-auto grid max-w-235 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-180 grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {tools.map((tool) => (
               <article
                 key={tool.name}
-                className="flex h-22.5 items-center justify-center rounded-2xl bg-white px-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-26 items-center justify-center rounded-xl bg-white px-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="relative h-9.5 w-40 md:h-10.5 md:w-45">
                   <Image

@@ -26,6 +26,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hero-container {
+  width: 100%;
+  height: 700px;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+  background: #ffffff;
+}
+
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 231, 238, 0.45),
+      rgba(255, 255, 255, 0) 120px
+    ),
+    linear-gradient(to right, rgba(226, 232, 240, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.35) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    70px 70px,
+    70px 70px;
+}
+
 .container {
   max-width: 1160px;
   margin-left: auto;
